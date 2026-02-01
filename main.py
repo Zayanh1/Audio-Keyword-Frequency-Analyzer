@@ -1,6 +1,4 @@
 import sys
-import wave
-import contextlib
 from openai_whisper import transcribe
 from tqdm import tqdm
 
@@ -12,9 +10,6 @@ def count_words(transcription, words):
     return count
 
 def main(audio_file_path):
-    with contextlib.closing(wave.open(audio_file_path, 'r')) as f:
-        duration = f.getnframes() / float(f.getframerate())
-    
     transcription = transcribe(audio_file_path)
     words_to_count = ['guys', 'guise', 'skies']
     word_count = count_words(transcription, words_to_count)
