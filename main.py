@@ -2,6 +2,7 @@ import sys
 import wave
 import contextlib
 from openai_whisper import transcribe
+from tqdm import tqdm
 
 def count_words(transcription, words):
     count = 0
